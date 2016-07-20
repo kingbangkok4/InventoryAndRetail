@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-class Employee {
+class Customer {
 
     public $sql;
 

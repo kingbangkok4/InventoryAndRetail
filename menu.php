@@ -13,7 +13,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <!--<li><a href="?viewName=customerList">ลูกค้า</a></li>-->
+                <li><a href="?viewName=customerList">ลูกค้า</a></li>
 				<?php if($_SESSION["userType"] == "Admin") { ?>
 					<li>
 						<a href="?viewName=employeeList">ข้อมูลตัวแทน <span class="sr-only">(current)</span></a></li>

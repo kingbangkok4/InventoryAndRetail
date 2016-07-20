@@ -5,7 +5,7 @@ include "./lib/helper.php";
 include "./lib/dbConnector.php";
 include "./model/employee.php";
 
-// insert employee
+
 $emp = new Customer();
 
     $data = array(
