@@ -38,7 +38,7 @@ class Employee {
     }
     
    public function read() {
-        $this->sql = " SELECT * FROM `tb_customer` ORDER BY id ";
+        $this->sql = " SELECT * FROM `tb_customer` ORDER BY name ";
 		mysql_query("SET NAMES 'utf8'");
         $query = mysql_query($this->sql);
         if ($query) {
