@@ -5,7 +5,7 @@ class Customer {
     public $sql;
 
     public function insert($data) {
-        $this->sql = "INSERT INTO tb_customer (`id`, `fullname`, `mobile`, `email`, `address`, `line`) VALUES (NULL, '{$data["name"]}', '{$data["mobile"]}', '{$data["email"]}', '{$data["address"]}', '{$data["line"]}') ";
+        $this->sql = "INSERT INTO tb_customer ( `name`, `mobile`, `email`, `address`, `line`) VALUES ( '{$data["name"]}', '{$data["mobile"]}', '{$data["email"]}', '{$data["address"]}', '{$data["line"]}') ";
         mysql_query("SET NAMES 'utf8'");
 		$query = mysql_query($this->sql);
         if ($query) {

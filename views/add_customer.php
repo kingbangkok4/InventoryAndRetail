@@ -2,8 +2,8 @@
         header('Content-Type: text/html; charset=utf-8');
 	include "./model/customer.php";
 	$obj = new Customer();
-	$rows_province = $obj->read_province();
-	$new_customer_id = $obj->get_new_custome_id();
+	
+	
 
 ?>
 <script type="text/javascript">
@@ -69,15 +69,7 @@ function CheckMobileNumber() {
 			<br />
 			<div class="row">
 				 <div class="col-md-3">
-					<label>จังหวัด</label>
-					<select id="province" name="province" class="form-control">
-						<?php
-							if ($rows_province != false) {
-								foreach ($rows_province as $row_province) {
-								?>				
-								  <option value="<?= $row_province["name"] ?>" ><?= $row_province["name"] ?></option>
-							<?php } } ?>
-					</select> 
+					
 				</div>  
 				<div class="col-md-3">
 					<label style="color:red;">**&nbsp;</label><label>ที่อยู่</label>

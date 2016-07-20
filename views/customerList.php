@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 include "./model/customer.php";
-$obj = new Employee();
+$obj = new Customer();
 $obj->sql = "select * from tb_customer";
 $rows = $obj->read();
 
@@ -34,7 +34,6 @@ $rows = $obj->read();
                         ?>
                         <tr>
                             <td class="text-center"> <?= $row["id"] ?></td>
-			    <td class="text-center"><?= $row["title"] ?></td>
                             <td class="text-center"><?= $row["name"] ?></td>
                             <td class="text-center"><?= $row["email"] ?></td>
                             <td class="text-center"><?= $row["mobile"] ?></td>
