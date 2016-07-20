@@ -1,7 +1,7 @@
 <?php
 //----------------------------
-$user = "admin";
-$pass = "1234";
+$user = "root";
+$pass = "";
 $dbName = "inventory_management";
 //----------------------------
 $host = "localhost";
