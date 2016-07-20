@@ -35,7 +35,7 @@ function CheckMobileNumber() {
 }
 </script>
  <div class="container">
-    <form action="doUpdateEmployee.php" method="post" class="form form-horizontal" style="font-size:12px;"  onsubmit="return CheckMobileNumber()">
+    <form action="doUpdateCustomer.php" method="post" class="form form-horizontal" style="font-size:12px;"  onsubmit="return CheckMobileNumber()">
         <input type="hidden" name="user_ref" value="<?=$_REQUEST["user_ref"]?>" />		
 	
 
