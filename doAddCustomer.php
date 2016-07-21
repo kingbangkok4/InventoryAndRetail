@@ -13,8 +13,7 @@ $emp = new Customer();
     "mobile" => $_REQUEST["mobile"],
     "email" => $_REQUEST["email"],
     "address" => $_REQUEST["address"],
-    "line" => $_REQUEST["line"],
-	
+    "line" => $_REQUEST["line"]	
     );
     $emp->insert($data);
     redirect("index.php?viewName=customerList");

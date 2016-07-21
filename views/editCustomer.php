@@ -2,16 +2,14 @@
 header('Content-Type: text/html; charset=utf-8');
 include "./model/customer.php";
 $obj = new Customer();
-$rows = $obj->read(" id = {$_REQUEST["id"]} ");
-
-	if ($rows != false) {
+$rows = $obj->read(" id= {$_REQUEST["id"]} ");
+if ($rows != false) {
 		$row = $rows[0];
 	}
-
-
+	
 
 ?>
-<script type="text/javascript">
+<!--<script type="text/javascript">
 function formatPhone(obj) {
     var numbers = obj.value.replace(/\D/g, ''),
 	 char = {};
@@ -33,10 +31,10 @@ function CheckMobileNumber() {
 	return true;
    }
 }
-</script>
+</script>-->
  <div class="container">
     <form action="doUpdateCustomer.php" method="post" class="form form-horizontal" style="font-size:12px;"  onsubmit="return CheckMobileNumber()">
-        <input type="hidden" name="user_ref" value="<?=$_REQUEST["user_ref"]?>" />		
+        <input type="hidden" name="id" value="<?=$_REQUEST["id"]?>" />		
 	
 
         <fieldset>

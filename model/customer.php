@@ -50,8 +50,8 @@ class Customer {
         }
     }
     
-   public function read() {
-        $this->sql = " SELECT * FROM `tb_customer` ORDER BY name ";
+   public function read($condition = " 1=1") {
+        $this->sql = " SELECT * FROM `tb_customer` WHERE {$condition}";
 		mysql_query("SET NAMES 'utf8'");
         $query = mysql_query($this->sql);
         if ($query) {
