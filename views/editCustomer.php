@@ -1,15 +1,15 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
 include "./model/customer.php";
 $obj = new Customer();
-$id = $_REQUEST["id"];
-$rows = $obj->read(" e.user_ref = {$_REQUEST["user_ref"]} ");
-if ($rows != false) {
-    $row = $rows[0];
-    $users = $obj->get_user(" id = {$_REQUEST["user_ref"]} ");
-	$user = $users[0];
-	
-	$rows_province = $obj->read_province();
-}
+$rows = $obj->read(" id = {$_REQUEST["id"]} ");
+
+	if ($rows != false) {
+		$row = $rows[0];
+	}
+
+
+
 ?>
 <script type="text/javascript">
 function formatPhone(obj) {
@@ -49,13 +49,13 @@ function CheckMobileNumber() {
 				</div>
 					<div class="col-md-3">
 					<label style="color:red;">**&nbsp;</label><label>line</label>
-					<input type="email" name="line" value="<?= $row["line"] ?>" class="form-control"  required="" />
+					<input type="text" name="line" value="<?= $row["line"] ?>" class="form-control"  required="" />
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-3">
 					<label>ชื่อ-สกุล</label>
-					<input type="text" name="name" value="<?= $row["fullname"] ?>" class="form-control" required="" />
+					<input type="text" name="name" value="<?= $row["name"] ?>" class="form-control" required="" />
 				</div>
 				<div class="col-md-3">
 					<label>เบอร์โทรศัพท์</label>

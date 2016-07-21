@@ -5,7 +5,8 @@ class Customer {
     public $sql;
 
     public function insert($data) {
-        $this->sql = "INSERT INTO tb_customer ( `name`, `mobile`, `email`, `address`, `line`) VALUES ( '{$data["name"]}', '{$data["mobile"]}', '{$data["email"]}', '{$data["address"]}', '{$data["line"]}') ";
+       $this->sql = "INSERT INTO tb_customer ( `name`, `mobile`, `email`, `address`, `line`) VALUES ( '{$data["name"]}', '{$data["mobile"]}', '{$data["email"]}', '{$data["address"]}', '{$data["line"]}') ";
+         
         mysql_query("SET NAMES 'utf8'");
 		$query = mysql_query($this->sql);
         if ($query) {
@@ -25,13 +26,25 @@ class Customer {
             return false;
         }
     }
-     public function update($data, $user_ref) {
-        $this->sql = "UPDATE tb_customer SET name = '{$data["name"]}', mobile = '{$data["mobile"]}', email = '{$data["email"]}', address='{$data["address"]}', title = '{$data["line"]}'  WHERE user_ref = {$user_ref}";
+   // public function update($data, $user_ref) {
+    //    $this->sql = "UPDATE tb_customer SET name = '{$data["name"]}', mobile = '{$data["mobile"]}', email = '{$data["email"]}', address='{$data["address"]}', line = '{$data["line"]}'  WHERE user_ref = {$user_ref}";
+  //      mysql_query("SET NAMES 'utf8'");
+//		$query = mysql_query($this->sql);
+        
+    //    if ($query){		
+     //           return true;
+   //     } else {
+    //        return false;
+    //    }
+  //  }
+    
+     public function update($data, $condition) {
+        $this->sql = "UPDATE tb_customer SET  name = '{$data["name"]}', mobile = '{$data["mobile"]}', email='{$data["email"]}', address='{$data["address"]}', line='{$data["line"]}' WHERE {$condition}";
         mysql_query("SET NAMES 'utf8'");
 		$query = mysql_query($this->sql);
         
-        if ($query){		
-                return true;
+        if ($query) {
+			return true;
         } else {
             return false;
         }

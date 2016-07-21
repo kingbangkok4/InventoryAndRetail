@@ -7,14 +7,14 @@ include "./model/customer.php";
 $emp = new Customer();
 $data = array(
 	
-    "fullname" => $_REQUEST["name"],
+    "name" => $_REQUEST["name"],
     "mobile" => $_REQUEST["mobile"],
     "email" => $_REQUEST["email"],
     "address" => $_REQUEST["address"],
-    "province" => $_REQUEST["line"],
+    "line" => $_REQUEST["line"],
    
 );
-$emp->update($data, " {$_REQUEST["user_ref"]} ");
+$emp->update($data, " id={$_REQUEST["id"]} ");
 var_dump($data);
-//echo mysql_info();
+
 redirect("index.php?viewName=customerList");

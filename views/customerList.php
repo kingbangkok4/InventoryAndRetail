@@ -41,10 +41,10 @@ $rows = $obj->read();
                             <td class="text-center"><?= $row["line"] ?></td>   
 							
                             <td class="text-center">
-                                <a href="index.php?viewName=editCustomer&id=<?= $row["id"] ?>&user_ref=<?= $row["user_ref"] ?>" class="btn btn-sm btn-success">
+                                <a href="index.php?viewName=editCustomer&id=<?= $row["id"] ?>" class="btn btn-sm btn-success">
 											แก้ไข
                                 </a>
-								<?php if($row["type"] <> "Admin") {?>
+								<!--<?php if($row["type"] <> "Admin") {?> -->
                                 <!-- <a onclick="return confirm('ยืนยันการลบตัวแทน')" href="deleteEmployee.php?user_ref=<?= $row["user_ref"] ?>" class="btn btn-sm btn-danger">
                                                                                             ลบ
                                 </a> -->
