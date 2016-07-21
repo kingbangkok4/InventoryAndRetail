@@ -64,4 +64,18 @@ class Customer {
             return false;
         }
     }
+     public function search($condition ) {
+        $this->sql = " SELECT * FROM `tb_customer` WHERE name LIKE'%$condition%'";
+		mysql_query("SET NAMES 'utf8'");
+        $query = mysql_query($this->sql);
+        if ($query) {
+            $result = array();
+            while ($row = mysql_fetch_array($query, MYSQL_ASSOC)) {
+                $result[] = $row;
+            }
+            return $result;
+        } else {
+            return false;
+        }
+    }
 }

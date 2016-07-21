@@ -8,12 +8,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="?viewName=employeeList">ระบบคลังสินค้าผลิตภัณฑ์เสริมอาหาร</a>
+            <a class="navbar-brand" href="?viewName=employeeList">ระบบคลังสินค้าผลิตภัณฑ์เครื่องสำอาง</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="?viewName=customerList">ลูกค้า</a></li>
+                <li><a href="?viewName=customerList">ข้อมูลลูกค้า</a></li>
+                <li><a href="?viewName=sellList&searchName=">ขายสินค้า</a></li>
 				<?php if($_SESSION["userType"] == "Admin") { ?>
 					<li>
 						<a href="?viewName=employeeList">ข้อมูลตัวแทน <span class="sr-only">(current)</span></a></li>
