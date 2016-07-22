@@ -52,13 +52,14 @@ $obj->sql = "select * from tb_customer";
 
 
 <script>
+
     function myFunction() {
       <?php
-   
+        $u="a".$_GET["name"];
         $rows = $obj->search($_GET["name"] );
        
     ?>
-      
+  
     //document.getElementById("id").innerHTML =<? = $row["id"] ?>;
   /// document.getElementById("name").innerHTML =<?= $row["name"] ?>;
    // document.getElementById("email").innerHTML =<?= $row["email"] ?>;
@@ -72,12 +73,15 @@ $obj->sql = "select * from tb_customer";
 </script>
 
 <div class="container">
-    <input type="text" name="name">
+   <form name="form" action="" method="get">
+    <input type="text"   id="name" name="name" value="v"/>
+     
      <input type="text"  id="searchName" name="searchName"  class="form-control" required="" style="width:300px;" />
   
   <!-- Trigger the modal with a button -->
-  <button type="button" onclick="myFunction()" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Large Modal</button>
-
+ 
+  <button type="button" onclick="myFunction()" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open </button>
+   </form>
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
@@ -90,7 +94,7 @@ $obj->sql = "select * from tb_customer";
           <table id="tableData" class="table table-bordered table-hover" style="font-size:12px;">
             <thead >
                 <tr class="success">
-                    <th class="text-center">รหัสลูกค้า</th>
+                    <th class="text-center">รหัสลูกค้า<?php echo $u ;?></th>
                     <th class="text-center">ชื่อลูกค้า</th>
                     <th class="text-center">อีเมล์</th>
                     <th class="text-center">เบอร์โทร</th>
