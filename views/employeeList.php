@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
+
 include "./model/employee.php";
 $obj = new Employee();
 $obj->sql = "select * from tb_employee";

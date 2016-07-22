@@ -6,7 +6,7 @@ $rows = $obj->read(" id= {$_REQUEST["id"]} ");
 if ($rows != false) {
 		$row = $rows[0];
 	}
-	
+
 
 ?>
 <!--<script type="text/javascript">

@@ -1,11 +1,16 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
+
 include "./model/customer.php";
 $obj = new Customer();
 $obj->sql = "select * from tb_customer";
 //$rows = $obj->read();
 
 ?>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
 
  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
@@ -87,7 +92,7 @@ $obj->sql = "select * from tb_customer";
                             <td class="text-center"><?= $row["line"] ?></td>   
 							
                             <td class="text-center">
-                                <a href="index.php?viewName=editCustomer&id=<?= $row["id"] ?>" class="btn btn-sm btn-success">
+                                <a href="index.php?viewName=selectSellProduct&id=<?= $row["id"] ?>" class="btn btn-sm btn-success">
 											ขาย
                                 </a>
 								<!--<?php if($row["type"] <> "Admin") {?> -->
@@ -104,4 +109,20 @@ $obj->sql = "select * from tb_customer";
             </tbody>
         </table>
     </div>
+    
+    <select name="users" >
+      <?php
+                if ($rows != false) {
+                    $count = 1;
+                    foreach ($rows as $row) {
+                        ?>
+    <option value=" <?php $row["id"]?>"><?= $row["name"] ?></option>
+     <?php
+                    }
+                }
+                ?>
+    
+    </select>
+    
+    
 </div>

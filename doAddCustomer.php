@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
+
 include "./lib/std.php";
 include "./lib/helper.php";
 include "./lib/dbConnector.php";

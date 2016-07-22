@@ -1,5 +1,5 @@
 <?php
-	header('Content-Type: text/html; charset=utf-8');
+	
 	include "./model/employee.php";
 	$obj = new Employee();
 	$rows_province = $obj->read_province();

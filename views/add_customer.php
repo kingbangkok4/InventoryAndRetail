@@ -1,5 +1,5 @@
 <?php
-        header('Content-Type: text/html; charset=utf-8');
+  
 	include "./model/customer.php";
 	$obj = new Customer();
 	
