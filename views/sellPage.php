@@ -4,15 +4,39 @@ include "./model/customer.php";
 $obj = new Customer();
 $obj2 = new Product();
 $obj3 = new Customer();
+$obj4 = new Product();
 $obj->sql = "select * from tb_customer";
 $obj2->sql = "select * from tb_Product";
 $rows3 = $obj3->read(" id= {$_REQUEST["id"]} ");
 if ($rows3 != false) {
 		$row3 = $rows3[0];
 	}
+ $rows4 = $obj4->read("id= {$_REQUEST["idProduct"]} ");
+if ($rows4 != false) {
+		//$row4 = $rows4;
+                
+                if(!empty($_SESSION['rows4'])){
+                    //$index = count($_SESSION["rows4"]);
+                     foreach ($rows4 as $row) {
+                        $_SESSION["rows4"][] = $row;
+                     }
+                    $rows4 = $_SESSION["rows4"];    
+                   // echo $index;
+                }else{
+                   foreach ($rows4 as $row) {
+                        $_SESSION["rows4"][] = $row;
+                     }
+                }
+	}
+
 
 //$rows = $obj->read();
-
+   if($_REQUEST["isClear"] == "1"){
+       if (isset($_SESSION['rows4']))
+        {
+            unset($_SESSION['rows4']);
+        }     
+   }
 ?>
  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -28,6 +52,9 @@ if ($rows3 != false) {
             });
              $(document).ready(function() {
                 $('#tableData2').paging({limit:10});
+            });
+              $(document).ready(function() {
+                $('#tableData3').paging({limit:10});
             });
             
           
@@ -66,11 +93,18 @@ if ($rows3 != false) {
   
   margin: 0 auto;
  
+
+  .paging-nav,
+#tableData3 {
+  
+  margin: 0 auto;
+ 
 }
 </style>
 
 
 <script>
+   
     function myFunction2() {
       <?php
  
@@ -173,7 +207,7 @@ if ($rows3 != false) {
                             <td class="text-center"><?= $row["mobile"] ?></td>
                             <td class="text-center"><?= $row["address"] ?></td>
                             <td class="text-center"><?= $row["line"] ?></td>  
-                            <td class="text-center"><a href="index.php?viewName=sellPage&id=<?= $row["id"] ?>&idProduct=<?= $row2["id"] ?>" class="btn btn-sm btn-success">
+                            <td class="text-center"><a href="index.php?viewName=sellPage&id=<?= $row["id"] ?>&idProduct=<?= $row2["id"] ?>&isClear=" class="btn btn-sm btn-success fa">
 											เลือก
                                 </a></td>
                </tr> 
@@ -214,10 +248,10 @@ if ($rows3 != false) {
                    
                 </tr>
             </thead>
-            <tbody >
+            <tbody>
     
              <?php
-                if ($rows2 != false) {
+                if ($rows2 != false) {                   
                     $count2 = 1;
                     foreach ($rows2 as $row2) {
                         ?>     
@@ -237,7 +271,7 @@ if ($rows3 != false) {
                             <td class="text-center"> <?= $row2["product_price"] ?></td>
                             <td class="text-center"> <?= $row2["product_unit"] ?></td>
                             <td class="text-center"> <?= $row2["quantity"] ?></td>
-                            <td class="text-center"><a href="index.php?viewName=sellPage&id=<?= $row["id"] ?>&idProduct=<?= $row2["id"] ?>" class="btn btn-sm btn-success">
+                            <td class="text-center"><a href="index.php?viewName=sellPage&id=<?= $row["id"] ?>&idProduct=<?= $row2["id"] ?>&isClear=" class="btn btn-sm btn-success" >
 											เลือก
                                 </a></td>
                </tr> 
@@ -255,4 +289,39 @@ if ($rows3 != false) {
       </div>
     </div>
   </div>
+    <table id="tableData3" class="table table-bordered table-hover" style="font-size:12px;">
+            <thead >
+                <tr class="success">
+                    <th class="text-center">รหัส</th>
+                    <th class="text-center">รหัสสินค้า</th>
+                    <th class="text-center">ชื่อสินค้า</th>
+                    <th class="text-center">ราคา</th>
+                    <th class="text-center">จำนวน</th>   			
+                    <th class="text-center">ลบ</th>
+                   
+                </tr>
+            </thead>
+            <tbody id="sellData">
+                     <?php
+                 
+                if ($rows4 != false) {
+                    $count4 = 1;
+                    foreach ($rows4 as $row4) {
+                       ?> 
+               <tr>
+                         <td class="text-center"> <?= $row4["id"] ?></td>
+                         <td class="text-center"> <?= $row4["product_id"] ?></td>
+                          <td class="text-center"> <?= $row4["product_name"] ?></td>
+                            <td class="text-center"> <?= $row4["product_price"] ?></td>
+                            <td class="text-center"> <?= $row4["product_unit"] ?></td>
+                            <td class="text-center"> <?= $row4["quantity"] ?></td>
+               </tr>
+                     <?php
+                    }
+                }
+                ?>
+            </tbody>
+          </table>
+         <br>
+            <a href="" class="btn btn-sm btn-success pull-right">ยืนยัน </a>
 </div>
