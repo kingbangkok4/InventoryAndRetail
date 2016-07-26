@@ -318,7 +318,7 @@ if ($rows4 != false) {
                  
                 if (!empty($_SESSION["rows4"])) {
                     $count4 = 0;
-                    foreach ($_SESSION["rows4"] as $row4) {
+                    foreach ($_SESSION["rows4"] as $i => $row4) {
                      
                           //foreach ($rows4 as $row4) {
                         /*if( $_SESSION["rows4"][$int]==NULL ){
@@ -334,7 +334,7 @@ if ($rows4 != false) {
                           <td class="text-center"> <?= $row4["product_name"] ?></td>
                             <td class="text-center"> <?= $row4["product_price"] ?></td>
                             <td class="text-center"><input type="number"/>.</td>
-                            <td class="text-center">  <a href="index.php?viewName=sellPage&id=<?= $row["id"] ?>&idProduct=&idProductClear=<?=$count4 ?>&isClear=" class="btn btn-sm btn-danger">
+                            <td class="text-center">  <a href="index.php?viewName=sellPage&id=<?= $row["id"] ?>&idProduct=&idProductClear=<?=$i ?>&isClear=" class="btn btn-sm btn-danger">
                                                                                             ลบ
                                 </a> </td>
                </tr>
