@@ -148,21 +148,20 @@ if ($rows4 != false) {
 ?>
 
 <div class="container">
-   <form name="form" action="#" method="get">
-    
+    <form action="doAddSellList.php" method="post" class="form form-horizontal" style="font-size:12px;">
     <?php if ($rows3 != false) { ?>
      <input type="text"  id="searchName" name="searchName" value="<?= $row3["name"] ?>"  class="form-control" required="" style="width:300px; display:inline-block;" />
-    
+    <input type="text"  id="searchName" name="searchID" value="<?= $row3["id"] ?>"  class="form-control" required="" style="width:300px;display:inline-block;display: none;" />
   <!-- Trigger the modal with a button -->
     <?php } else{?>
          <input type="text"  id="searchName" name="searchName"  class="form-control" required="" style="width:300px;display:inline-block;" />
     <?php }?>
   <button type="button"  name="submit" value="send" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="display:inline-block;">ค้นหาลูกค้า </button>
    
-   </form>
-    
+ 
+    </br>
    
-    <form name="form" action="#" method="get">
+   
      
     
    
@@ -289,11 +288,12 @@ if ($rows4 != false) {
                      <?php
                     }
                 }
+               
                 ?>
              
             </tbody>
           </table>
-        </div>
+        </div><?=$total=0;?>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
@@ -329,23 +329,32 @@ if ($rows4 != false) {
                         }*/
                        ?> 
                <tr>       <td class="text-center"> <?=$count4 ?></td>
-                         <td class="text-center"> <?= $row4["id"] ?></td>
-                         <td class="text-center"> <?= $row4["product_id"] ?></td>
-                          <td class="text-center"> <?= $row4["product_name"] ?></td>
-                            <td class="text-center"> <?= $row4["product_price"] ?></td>
-                            <td class="text-center"><input type="number"/>.</td>
-                            <td class="text-center">  <a href="index.php?viewName=sellPage&id=<?= $row["id"] ?>&idProduct=&idProductClear=<?=$i ?>&isClear=" class="btn btn-sm btn-danger">
-                                                                                            ลบ
+                         <td class="text-center" id=""> <?= $row4["id"] ?></td>
+                         <td class="text-center"  id="product_id<?=$count4 ?>"> <?= $row4["product_id"] ?></td>
+                          <td class="text-center"  id=""> <?= $row4["product_name"] ?></td>
+                            <td class="text-center"  ><?= $row4["product_price"] ?></td>
+                            <td class="text-center"  ><input class="quantity" type="number" id="qty" name="qty" value="1" /></td>
+                            <td class="text-center"  >  <a href="index.php?viewName=sellPage&id=<?= $row["id"] ?>&idProduct=&idProductClear=<?=$i ?>&isClear=" class="btn btn-sm btn-danger">
+                                                                                         ลบ
                                 </a> </td>
                </tr>
                      <?php
                      $count4 +=1;
+                     $total += number_format($row4["product_price"])*number_format($_REQUEST["qty"]);
                     }
-                    
+                 
                 }
                 ?>
             </tbody>
           </table>
-         <br>
-            <a href="" class="btn btn-sm btn-success pull-right">ยืนยัน </a>
+     
+           <br>
+
+         <lable id="total_price" class="label label-success pull-right"><h6>ยอดรวม:<?=$total?></h6> </lable>
+           <br>
+           <br>
+           <button type="submit" class="btn btn-primary center-block">
+							ยืนยัน
+	   </button>
+      </form>
 </div>

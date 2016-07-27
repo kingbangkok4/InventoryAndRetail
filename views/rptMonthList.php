@@ -90,6 +90,7 @@ $rows = $obj->read_sale(" DATE_FORMAT(po.productout_date,'%Y-%m-%d') >= '".$date
                         </tr>                       
                         <?php 
 						$total += $row["sum_price"];
+                                           
                     }
                 }
                 ?>
