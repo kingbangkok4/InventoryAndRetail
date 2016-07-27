@@ -340,7 +340,7 @@ if ($rows4 != false) {
                </tr>
                      <?php
                      $count4 +=1;
-                     $total += number_format($row4["product_price"])*number_format($_REQUEST["qty"]);
+                     $total += number_format($row4["product_price"]);
                     }
                  
                 }
