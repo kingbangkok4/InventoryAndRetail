@@ -25,7 +25,7 @@
 					<a href="?viewName=productList">ข้อมูลสินค้า <span class="sr-only"></a>
                  </li>    
                  <li>
-					<ul class="nav nav-pills" style="margin-top:4px;">
+					<ul class="nav nav-pills" style="margin-top:-6px;">
 					  <li class="dropdown">
 						<a class="dropdown-toggle"
 						   data-toggle="dropdown"
@@ -41,7 +41,7 @@
 					</ul>
 				</li>       
                  <li>
-					<ul class="nav nav-pills" style="margin-top:4px;">
+					<ul class="nav nav-pills" style="margin-top:-6px;">
 					  <li class="dropdown">
 						<a class="dropdown-toggle"
 						   data-toggle="dropdown"

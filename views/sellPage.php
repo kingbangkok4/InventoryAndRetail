@@ -149,29 +149,33 @@ if ($rows4 != false) {
 ?>
 
 <div class="container">
+     <h3><label class="label label-warning">ขายสินค้า</label></h3>
     <form action="doAddSellList.php" method="post" class="form form-horizontal" style="font-size:12px;">  
-    <?php if ($rows3 != false) { ?>
-     <input type="text"  id="searchName" name="searchName" value="<?= $row3["name"] ?>"  class="form-control" required="" style="width:300px; display:inline-block;" />
-     <input type="text"  id="searchName" name="searchID" value="<?= $row3["id"] ?>"  class="form-control" required="" style="width:300px;display:inline-block;display: none;" />
-
-  <!-- Trigger the modal with a button -->
-    <?php } else{?>
-         <input type="text"  id="searchName" name="searchName"  class="form-control" required="" style="width:300px;display:inline-block;" />
-    <?php }?>
-  <button type="button"  name="submit" value="send" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="display:inline-block;">ค้นหาลูกค้า </button>
-   
- 
-    </br>
-   
-   
-     
-    
-   
+         <div class="row">
+             <div class="col-md-6"></div>
+             <div class="col-md-5">
+                    <?php if ($rows3 != false) { ?>
+                        <input type="text"  id="searchName" name="searchName" value="<?= $row3["name"] ?>"  class="form-control" required="" />
+                        <input type="hidden"  id="searchName" name="searchID" value="<?= $row3["id"] ?>"  class="form-control" required="" /> 
+                     <!-- Trigger the modal with a button -->
+                   <?php } else{?>
+                        <input type="text"  id="searchName" name="searchName"  class="form-control" required="" />
+                   <?php }?>
+             </div>
+             <div class="col-md-1">
+                 <button type="button"  name="submit" value="send" class="btn btn-info pull-right" data-toggle="modal" data-target="#myModal" >ค้นหาลูกค้า </button> 
+             </div>           
+         </div>
+            <br />
+           <div class="row">  
+              <div class="col-md-12">
+                 <button type="button"  name="submit" value="send" class="btn btn-info pull-right" data-toggle="modal" data-target="#myModal2">ค้นหาสินค้า </button>
+             </div>
+           </div>
+    </br>  
   
   <!-- Trigger the modal with a button -->
- 
-  <button type="button"  name="submit" value="send" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">ค้นหาสินค้า </button>
-   
+
   <!-- Modal -->
   
   

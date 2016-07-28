@@ -56,9 +56,9 @@
     <body>
     <div class="row">
     	<div class="col-md-12">
-   		  <h3 class="form-signin-heading" style="margin-left:35px;text-align:center;color:#333"; ><label class="">ระบบคลังสินค้าผลิตภัณฑ์เสริมอาหาร</label>
+   		  <h3 class="form-signin-heading" style="margin-left:35px;text-align:center;color:#333"; ><label class="">ระบบคลังสินค้าผลิตภัณฑ์เครื่องสำอาง</label>
                 <br /><br />
-   		    <img src="images/1.1.png" width="350" height="250"></h3>
+   		    <img src="images/logo_cosmetic_web.png" width="350" height="250"></h3>
                 <br />
         </div>
     </div>
