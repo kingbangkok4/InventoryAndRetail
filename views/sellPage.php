@@ -345,7 +345,7 @@ if ($rows4 != false) {
                           <td class="text-center" >
                               <input class="text-right" type="number" name="array_product[<?=$i ?>][qty]" value="1" />
                           </td>
-                          <td class="text-center" >  <a href="index.php?viewName=sellPage&id=<?= $row["id"] ?>&idProduct=&idProductClear=<?=$i ?>&isClear=" class="btn btn-sm btn-danger">
+                          <td class="text-center" >  <a onclick="return confirm('ยืนยันการลูกค้า')" href="index.php?viewName=sellPage&id=<?= $row["id"] ?>&idProduct=&idProductClear=<?=$i ?>&isClear=" class="btn btn-sm btn-danger">
                                 ลบ
                            </a> </td>
                                 
@@ -361,8 +361,27 @@ if ($rows4 != false) {
           </table>
      
            <br>
+           <script>
+                   <?php  foreach ($_SESSION["rows4"] as $i => $row4) {?>
+                       $('.qty').on('keyup', function () {
 
-         <lable class="label label-success pull-right"><h6>ยอดรวม : <?=$total?> บาท</h6> </lable>
+                        var price = $(this).data(' <?php $row4["product_price"]?>') * this.value;
+                        $('#total_price_' + $(this).data('id')).text(price);
+
+
+                        var total = 0;
+                         $('.total').each(function() {
+                            total += Number($(this).text());
+                        });
+                        $('#total_price_basket').text('TOTAL: ' + total);
+                       })
+
+                     
+                           <?php } ?>
+           </script>
+         
+          <div id="total_price_basket">TOTAL:0</div>
+         <lable class="label label-success pull-right" id="price"><h6>ยอดรวม : <?=$total?> บาท</h6> </lable>
          <input id="total_price" name="total_price" type="hidden" value="<?=$total?>" />
            <br>
            <br>
