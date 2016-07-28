@@ -4,8 +4,7 @@ class sellOrder {
     public $sql;
 
     public function insertSell($data) {
-       $this->sql = "INSERT INTO tb_sell ( `order_no`,`product_id`, `qty`, `sale_id`,`sum_price`) VALUES ( '{$data["order_no"]}','{$data["product_id"]}', '{$data["qty"]}', '{$data["sale_id"]}', '{$data["sum_price"]}') ";
-         
+       $this->sql = "INSERT INTO tb_sell ( `order_no`,`product_id`, `product_price`, `qty`,`sum_price`) VALUES ( '{$data["order_no"]}','{$data["product_id"]}', '{$data["product_price"]}', '{$data["qty"]}', '{$data["sum_price"]}') ";        
         mysql_query("SET NAMES 'utf8'");
 		$query = mysql_query($this->sql);
         if ($query) {
@@ -16,7 +15,7 @@ class sellOrder {
     }
     
     public function insertOrder($data) {
-       $this->sql = "INSERT INTO tb_order ( `customer_id`,`order_date`,`status`, `total_price`,`user_id`) VALUES ( '{$data["customer_id"]}','{$data["order_date"]}','{$data["status"]}',  '{$data["total_price"]}', '{$data["user_id"]}') ";
+       $this->sql = "INSERT INTO tb_order ( `customer_id`, `total_price`,`user_id`) VALUES ( '{$data["customer_id"]}', '{$data["total_price"]}', '{$data["user_id"]}') ";
          
         mysql_query("SET NAMES 'utf8'");
 		$query = mysql_query($this->sql);

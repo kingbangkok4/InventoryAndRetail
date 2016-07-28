@@ -143,15 +143,17 @@ if ($rows4 != false) {
            
 
 </script>
-<?php echo count($_SESSION['rows4']);
-
+<?php 
+//echo count($_SESSION['rows4']);
+//echo $_SESSION["id"];
 ?>
 
 <div class="container">
-    
+    <form action="doAddSellList.php" method="post" class="form form-horizontal" style="font-size:12px;">  
     <?php if ($rows3 != false) { ?>
      <input type="text"  id="searchName" name="searchName" value="<?= $row3["name"] ?>"  class="form-control" required="" style="width:300px; display:inline-block;" />
-    <input type="text"  id="searchName" name="searchID" value="<?= $row3["id"] ?>"  class="form-control" required="" style="width:300px;display:inline-block;display: none;" />
+     <input type="text"  id="searchName" name="searchID" value="<?= $row3["id"] ?>"  class="form-control" required="" style="width:300px;display:inline-block;display: none;" />
+
   <!-- Trigger the modal with a button -->
     <?php } else{?>
          <input type="text"  id="searchName" name="searchName"  class="form-control" required="" style="width:300px;display:inline-block;" />
@@ -300,7 +302,6 @@ if ($rows4 != false) {
       </div>
     </div>
   </div>
-  <form action="doAddSellList.php" method="post" class="form form-horizontal" style="font-size:12px;">
     <table id="tableData3" class="table table-bordered table-hover" style="font-size:12px;">
             <thead >
                 <tr class="success">
@@ -316,9 +317,8 @@ if ($rows4 != false) {
             </thead>
             <tbody id="sellData">
                      <?php
-                 
                 if (!empty($_SESSION["rows4"])) {
-                    $count4 = 0;
+                    $count4 = 1;
                     foreach ($_SESSION["rows4"] as $i => $row4) {
                      
                           //foreach ($rows4 as $row4) {
@@ -329,15 +329,26 @@ if ($rows4 != false) {
                             
                         }*/
                        ?> 
-               <tr>       <td class="text-center"> <?=$count4 ?></td>
-                         <td class="text-center" id=""> <?= $row4["id"] ?></td>
-                         <td class="text-center"  id="product_id"> <?= $row4["product_id"] ?></td>
-                          <td class="text-center"  id="product_name"> <?= $row4["product_name"] ?></td>
-                            <td class="text-center" id="product_price" ><?= $row4["product_price"] ?></td>
-                            <td class="text-center"  ><input  type="number" id="qty" name="qty" value="1" /></td>
-                            <td class="text-center"  >  <a href="index.php?viewName=sellPage&id=<?= $row["id"] ?>&idProduct=&idProductClear=<?=$i ?>&isClear=" class="btn btn-sm btn-danger">
-                                                                                         ลบ
-                                </a> </td>
+               <tr>      <td class="text-center"> <?=$count4 ?></td>
+                         <td class="text-center" > <?= $row4["id"] ?>
+                             <input type="hidden" name="array_product[<?=$i ?>][id]" value="<?= $row4["id"] ?>" />
+                         </td>
+                         <td class="text-center" > <?= $row4["product_id"] ?>
+                            <input type="hidden" name="array_product[<?=$i ?>][product_id]" value="<?= $row4["product_id"] ?>" />
+                         </td>
+                         <td class="text-center" > <?= $row4["product_name"] ?>
+                            <input type="hidden" name="array_product[<?=$i ?>][product_name]" value="<?= $row4["product_name"] ?>" />
+                         </td>
+                          <td class="text-right" ><?= $row4["product_price"] ?>
+                              <input type="hidden" name="array_product[<?=$i ?>][product_price]" value="<?= $row4["product_price"] ?>" />
+                          </td>
+                          <td class="text-center" >
+                              <input class="text-right" type="number" name="array_product[<?=$i ?>][qty]" value="1" />
+                          </td>
+                          <td class="text-center" >  <a href="index.php?viewName=sellPage&id=<?= $row["id"] ?>&idProduct=&idProductClear=<?=$i ?>&isClear=" class="btn btn-sm btn-danger">
+                                ลบ
+                           </a> </td>
+                                
                </tr>
                      <?php
                      $count4 +=1;
@@ -351,9 +362,11 @@ if ($rows4 != false) {
      
            <br>
 
-         <lable id="total_price" class="label label-success pull-right"><h6>ยอดรวม:<?=$total?></h6> </lable>
+         <lable class="label label-success pull-right"><h6>ยอดรวม : <?=$total?> บาท</h6> </lable>
+         <input id="total_price" name="total_price" type="hidden" value="<?=$total?>" />
            <br>
            <br>
+           
            <button type="submit" class="btn btn-primary center-block">
 							ยืนยัน
 	   </button>
