@@ -8,19 +8,17 @@ include "./model/sell.php";
 $obj_order = new sellOrder();
 
  $data_order = array(
-    "customer_id" => $_REQUEST["fname"]." ".$_REQUEST["lname"],
+    "customer_id" => $_REQUEST["searchID"] ,
     "order_date" => $_REQUEST["mobile"],
-    "status" => $_REQUEST["email"],
-    "total_price" => $_REQUEST["address"],
-    "user_id" => $_REQUEST["line"]	
+    "total_price" => $_REQUEST["total_price"],
+    "user_id" => $_SESSION["id"]	
     );
 $order_no = $obj_order->insertOrder(data_order);
 
 $data_sale = array(
-    "product_id" => $_REQUEST["fname"]." ".$_REQUEST["lname"],
-    "qty" => $_REQUEST["mobile"],
-    "sale_id" => $_REQUEST["email"],
-    "sum_price" => $_REQUEST["address"],
+    "product_id" => $_REQUEST["product_id"],
+    "qty" => $_REQUEST["qty"],
+    "sum_price" => $_REQUEST["total_price"],
     "order_no" => $order_no	
 );
 

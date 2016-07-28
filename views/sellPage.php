@@ -148,7 +148,7 @@ if ($rows4 != false) {
 ?>
 
 <div class="container">
-    <form action="doAddSellList.php" method="post" class="form form-horizontal" style="font-size:12px;">
+    
     <?php if ($rows3 != false) { ?>
      <input type="text"  id="searchName" name="searchName" value="<?= $row3["name"] ?>"  class="form-control" required="" style="width:300px; display:inline-block;" />
     <input type="text"  id="searchName" name="searchID" value="<?= $row3["id"] ?>"  class="form-control" required="" style="width:300px;display:inline-block;display: none;" />
@@ -169,7 +169,7 @@ if ($rows4 != false) {
   <!-- Trigger the modal with a button -->
  
   <button type="button"  name="submit" value="send" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">ค้นหาสินค้า </button>
-   </form>
+   
   <!-- Modal -->
   
   
@@ -300,6 +300,7 @@ if ($rows4 != false) {
       </div>
     </div>
   </div>
+  <form action="doAddSellList.php" method="post" class="form form-horizontal" style="font-size:12px;">
     <table id="tableData3" class="table table-bordered table-hover" style="font-size:12px;">
             <thead >
                 <tr class="success">
@@ -330,17 +331,17 @@ if ($rows4 != false) {
                        ?> 
                <tr>       <td class="text-center"> <?=$count4 ?></td>
                          <td class="text-center" id=""> <?= $row4["id"] ?></td>
-                         <td class="text-center"  id="product_id<?=$count4 ?>"> <?= $row4["product_id"] ?></td>
-                          <td class="text-center"  id=""> <?= $row4["product_name"] ?></td>
-                            <td class="text-center"  ><?= $row4["product_price"] ?></td>
-                            <td class="text-center"  ><input class="quantity" type="number" id="qty" name="qty" value="1" /></td>
+                         <td class="text-center"  id="product_id"> <?= $row4["product_id"] ?></td>
+                          <td class="text-center"  id="product_name"> <?= $row4["product_name"] ?></td>
+                            <td class="text-center" id="product_price" ><?= $row4["product_price"] ?></td>
+                            <td class="text-center"  ><input  type="number" id="qty" name="qty" value="1" /></td>
                             <td class="text-center"  >  <a href="index.php?viewName=sellPage&id=<?= $row["id"] ?>&idProduct=&idProductClear=<?=$i ?>&isClear=" class="btn btn-sm btn-danger">
                                                                                          ลบ
                                 </a> </td>
                </tr>
                      <?php
                      $count4 +=1;
-                     $total += number_format($row4["product_price"]);
+                     $total += $row4["product_price"];
                     }
                  
                 }

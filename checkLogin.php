@@ -69,6 +69,7 @@ $password = $_REQUEST["password"];
 						while ($row = mysql_fetch_assoc($query)) {
 							$_SESSION["userType"] = $row['type'];
 							$_SESSION["userName"] = $row['username'];
+                                                        $_SESSION["id"] = $row['id'];
 						}
 						if($_SESSION["userType"] == "Admin"){
 							redirect("index.php?viewName=employeeList");
