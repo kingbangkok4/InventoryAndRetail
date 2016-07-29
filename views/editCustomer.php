@@ -43,36 +43,33 @@ function CheckMobileNumber() {
             </legend>
 			<div class="row">
 				<div class="col-md-3">
-					
+					<label>ชื่อ-สกุล</label>
+					<input type="text" name="name" value="<?= $row["name"] ?>" class="form-control" required="" />
+				
 				</div>
 					<div class="col-md-3">
 					<label style="color:red;">**&nbsp;</label><label>line</label>
 					<input type="text" name="line" value="<?= $row["line"] ?>" class="form-control"  required="" />
 				</div>
+                                <div class="col-md-3">
+					<label>อีเมล์</label>
+					<input type="email" name="email" value="<?= $row["email"] ?>" class="form-control"  required="" />
+				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-3">
-					<label>ชื่อ-สกุล</label>
-					<input type="text" name="name" value="<?= $row["name"] ?>" class="form-control" required="" />
+					<label>ที่อยู่</label>
+					</textarea>
+                                        <textarea name="address" class="form-control" required=""><?= $row["address"] ?></textarea>
 				</div>
 				<div class="col-md-3">
 					<label>เบอร์โทรศัพท์</label>
 					<input type="text" id="mobile" name="mobile" value="<?= $row["mobile"] ?>" onblur="formatPhone(this);" maxlength="10" class="form-control"  required="" />
 				</div>
-				<div class="col-md-3">
-					<label>อีเมล์</label>
-					<input type="email" name="email" value="<?= $row["email"] ?>" class="form-control"  required="" />
-				</div>
+				
 				
 			</div>			
-			<div class="row">
-				<div class="col-md-3">
-					<label>ที่อยู่</label>
-					</textarea>
-					<textarea name="address" class="form-control" required=""><?= $row["address"] ?></textarea
-				</div>
-			</div>
-		
+			
 			<div class="row">
 				<br /><br />
 				<div class="col-md-12 center-block">

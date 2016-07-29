@@ -37,17 +37,8 @@ function CheckMobileNumber() {
             <legend>
                 ข้อมูลค้า
             </legend>
-			<div class="row">
-				<div class="col-md-3">
-					
-					
-				</div>
-				<div class="col-md-3">
-					<label style="color:red;">**&nbsp;</label><label>line</label>
-					<input type="text" name="line" value="" class="form-control" required="" />
-				</div>
-			</div>
-			<br />
+			
+		
 			<div class="row">
 				<div class="col-md-3">
 					<label style="color:red;">**&nbsp;</label><label>ชื่อ</label>
@@ -61,20 +52,25 @@ function CheckMobileNumber() {
 					<label style="color:red;">**&nbsp;</label><label>เบอร์โทรศัพท์</label>
 					<input type="text" id="mobile" name="mobile" value="" class="form-control" onblur="formatPhone(this);" maxlength="10" required="" />
 				</div>
-				<div class="col-md-3">
-					<label style="color:red;">**&nbsp;</label><label>อีเมล์</label>
-						<input type="email" name="email" value="" class="form-control" placeholder="jane.doe@example.com"  required="" />	
-				</div>
+				
 			</div>
 			<br />
 			<div class="row">
 				 <div class="col-md-3">
 					
-				</div>  
-				<div class="col-md-3">
+					<label style="color:red;">**&nbsp;</label><label>line</label>
+					<input type="text" name="line" value="" class="form-control" required="" />
+				
+				</div> 
+                                <div class="col-md-3">
+                                    <label style="color:red;">**&nbsp;</label><label>อีเมล์</label>
+                                    <input type="email" name="email" value="" class="form-control" placeholder="jane.doe@example.com"  required="" />	
+				</div>
+                                <div class="col-md-3">
 					<label style="color:red;">**&nbsp;</label><label>ที่อยู่</label>
 					<textarea name="address" class="form-control" required=""></textarea>
 				</div>
+                            
 			</div>
 			<br /><br />
 			<div class="row">
