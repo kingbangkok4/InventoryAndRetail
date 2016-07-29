@@ -365,7 +365,7 @@ if ($rows4 != false) {
           </table>
      
            <br>
-
+ 
          <lable class="label label-success pull-right"><h6>ยอดรวม : <?=$total?> บาท</h6> </lable>
          <input id="total_price" name="total_price" type="hidden" value="<?=$total?>" />
            <br>
